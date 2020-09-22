@@ -683,11 +683,11 @@ function dynamic_sidebar( $index = 1 ) {
 
 	$sidebars_widgets = wp_get_sidebars_widgets();
 	if ( empty( $wp_registered_sidebars[ $index ] ) || empty( $sidebars_widgets[ $index ] ) || ! is_array( $sidebars_widgets[ $index ] ) ) {
-		/** This action is documented in wp-includes/widget.php */
+		/** This action is documented in wp-includes/widget-text.php */
 		do_action( 'dynamic_sidebar_before', $index, false );
-		/** This action is documented in wp-includes/widget.php */
+		/** This action is documented in wp-includes/widget-text.php */
 		do_action( 'dynamic_sidebar_after', $index, false );
-		/** This filter is documented in wp-includes/widget.php */
+		/** This filter is documented in wp-includes/widget-text.php */
 		return apply_filters( 'dynamic_sidebar_has_widgets', false, $index );
 	}
 
@@ -1117,7 +1117,7 @@ function wp_convert_widget_settings( $base_name, $option_name, $settings ) {
  *
  * @global WP_Widget_Factory $wp_widget_factory
  *
- * @param string $widget   The widget's PHP class name (see class-wp-widget.php).
+ * @param string $widget   The widget's PHP class name (see class-wp-widget-text.php).
  * @param array  $instance Optional. The widget's instance settings. Default empty array.
  * @param array  $args {
  *     Optional. Array of arguments to configure the display of the widget.
@@ -1164,7 +1164,7 @@ function the_widget( $widget, $instance = array(), $args = array() ) {
 
 	$instance = wp_parse_args( $instance );
 
-	/** This filter is documented in wp-includes/class-wp-widget.php */
+	/** This filter is documented in wp-includes/class-wp-widget-text.php */
 	$instance = apply_filters( 'widget_display_callback', $instance, $widget_obj, $args );
 
 	if ( false === $instance ) {
