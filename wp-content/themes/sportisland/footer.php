@@ -4,7 +4,9 @@
             <button class="modal__closer">
                 <span class="sr-only">Закрыть</span>
             </button>
-            <form action="#" class="modal-form__form">
+            <form method="post"
+                  action="<?php echo esc_url(admin_url('admin-post.php')); ?>"
+                  class="modal-form__form">
                 <h2 class="modal-content__h"> Отправить заявку </h2>
                 <p> Оставьте свои контакты и менеджер с Вами свяжется </p>
                 <p>
@@ -20,8 +22,8 @@
                                required>
                     </label>
                 </p>
-                <button class="btn" type="submit">Отправить</button>
                 <input type="hidden" name="action" value="si-modal-form">
+                <button class="btn" type="submit">Отправить</button>
             </form>
         </section>
     </div>
@@ -31,7 +33,7 @@
         <div class="wrapper main-header__wrap">
             <p class="main-header__logolink">
                 <?php the_custom_logo(); ?>
-                <span class="slogan">Твой фитнес клуб всегда рядом!</span>
+                <span class="slogan"><?php echo get_option('si_option_field_slogan')?></span>
             </p>
             <?php
 
@@ -99,8 +101,12 @@
                 }?>
             </div>
         </div>
+
     </footer>
-    <?php wp_footer(); ?>
+
+    <!--<script src="wp-content/themes/sportisland/assets/js/js.js"></script>-->
+
 </div>
+<?php wp_footer(); ?>
 </body>
 </html>
